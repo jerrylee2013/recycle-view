@@ -134,7 +134,7 @@ Component({
     placeholderHeight: {
       type: Number,
       public: true,
-      value:0
+      value: 0
     }
   },
 
@@ -266,7 +266,7 @@ Component({
       const that = this
       const scrollLeft = e.detail.scrollLeft
       const scrollTop = e.detail.scrollTop
-      this._lastScrollTop = this._lastScrollTop || 0;
+      this._lastScrollTop = this._lastScrollTop || 0
       const scrollDistance = Math.abs(scrollTop - this._lastScrollTop)
       if (!force && (Math.abs(scrollTop - pos.top) < pos.height * 1.5)) {
         this._log('【not exceed height')
