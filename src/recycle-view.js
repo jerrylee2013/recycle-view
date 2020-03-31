@@ -125,6 +125,16 @@ Component({
       type: Number,
       public: true,
       value: DEFAULT_SHOW_SCREENS
+    },
+    placeholderWidth: {
+      type: Number,
+      public: true,
+      value: 0
+    },
+    placeholderHeight: {
+      type: Number,
+      public: true,
+      value:0
     }
   },
 
@@ -166,6 +176,20 @@ Component({
         }
       }, true)
     })
+    /*
+    setTimeout(() => {
+      this.createSelectorQuery().select('.recycle-outer').boundingClientRect((rect) => {
+        this.setData({
+          recycleOuterHeight: rect.height
+        })
+      }).exec()
+      this.createSelectorQuery().select('.recycle-inner').boundingClientRect((rect) => {
+        this.setData({
+          recycleInnerHeight: rect.height
+        })
+      }).exec()
+    },5000)
+    */
   },
   detached() {
     this.page = null
@@ -242,6 +266,7 @@ Component({
       const that = this
       const scrollLeft = e.detail.scrollLeft
       const scrollTop = e.detail.scrollTop
+      this._lastScrollTop = this._lastScrollTop || 0;
       const scrollDistance = Math.abs(scrollTop - this._lastScrollTop)
       if (!force && (Math.abs(scrollTop - pos.top) < pos.height * 1.5)) {
         this._log('【not exceed height')

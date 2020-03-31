@@ -160,6 +160,8 @@ RecycleContext.prototype._forceRerender = function (id, cb) {
     })
     return
   }
+  if (!recycleData[id]) return;
+
   const sizeData = this._recalculateSize(recycleData[id].list)
   recycleData[id].sizeMap = sizeData.map
   // console.log('size is', sizeData.array, sizeData.map, 'totalHeight', sizeData.totalHeight)
